@@ -2,7 +2,6 @@ import fs from 'fs'
 import { utilService } from './util.service.js'
 
 const bugs = utilService.readJsonFile('data/bugs.json')
-console.log(bugs)
 
 export const bugService = {
     query,
@@ -44,7 +43,7 @@ function save(bugToSave) {
 function _saveBugsToFile() {
     return new Promise((resolve, reject) => {
         const data = JSON.stringify(bugs, null, 4)
-        fs.writeFile('data/bug.json', data, (err) => {
+        fs.writeFile('data/bugs.json', data, (err) => {
             if (err) {
                 return reject(err)
             }
