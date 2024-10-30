@@ -4,8 +4,9 @@ import { loggerService } from './services/logger.service.js'
 
 const app = express()
 
+app.use(express.static('public'))
 
-app.get('/api/bug', (req, res) => {
+app.get('/api/bugs', (req, res) => {
     bugService.query()
         .then(bugs => res.send(bugs))
         .catch(err => {
@@ -54,5 +55,6 @@ app.get('/api/bug/:bugId/remove', (req, res) => {
         })
 })
 
-app.listen(3030, () =>
-    console.log('Server ready at port http://127.0.0.1:3030'))
+const port = 3030
+app.listen(port, () =>
+    loggerService.info(`Server listening on port http://127.0.0.1:${port}/`))
