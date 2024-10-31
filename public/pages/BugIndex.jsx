@@ -16,8 +16,8 @@ export function BugIndex() {
     }
 
     function onRemoveBug(bugId) {
-        bugService
-            .remove(bugId)
+        console.log(bugId)
+        bugService.remove(bugId)
             .then(() => {
                 console.log('Deleted Succesfully!')
                 const bugsToUpdate = bugs.filter((bug) => bug._id !== bugId)
@@ -49,10 +49,10 @@ export function BugIndex() {
     }
 
     function onEditBug(bug) {
-        const severity = +prompt('New severity?')
-        const bugToSave = { ...bug, severity }
-        bugService
-            .save(bugToSave)
+        const description = prompt('Edit Desctiption', bug._id ? bug.description : '')
+        const bugToSave = { ...bug, description }
+        console.log(bugToSave)
+        bugService.save(bugToSave)
             .then((savedBug) => {
                 console.log('Updated Bug:', savedBug)
                 const bugsToUpdate = bugs.map((currBug) =>

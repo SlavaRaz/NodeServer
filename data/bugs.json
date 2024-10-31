@@ -1,40 +1,10 @@
 [
     {
-        "_id": "jbmVL",
-        "description": null,
-        "severity": 10,
-        "createdAt": 1730211072556
-    },
-    {
-        "_id": "nsQG5",
-        "description": null,
-        "severity": 10,
-        "createdAt": 1730211052315
-    },
-    {
-        "_id": "H67De",
-        "description": null,
-        "severity": null,
-        "createdAt": 1730211034990
-    },
-    {
-        "_id": "gJOBO",
-        "description": null,
-        "severity": null,
-        "createdAt": 1730211033170
-    },
-    {
-        "_id": "mll7N",
-        "description": null,
-        "severity": null,
-        "createdAt": 1730211020123
-    },
-    {
         "_id": "abc456",
         "title": "Cannot edit a car",
         "description": "problem when clicking edit",
         "severity": 2,
-        "createdAt": 1542107359454
+        "createdAt": null
     },
     {
         "_id": "abc789",

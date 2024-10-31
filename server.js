@@ -6,37 +6,37 @@ const app = express()
 
 app.use(express.static('public'))
 
-app.get('/api/bugs', (req, res) => {
+app.get('/api/bug', (req, res) => {
     bugService.query()
         .then(bugs => res.send(bugs))
         .catch(err => {
-            loggerService.error('Cannot get cars', err)
-            res.status(500).send('Cannot get cars')
+            loggerService.error('Cannot get bugs', err)
+            res.status(500).send('Cannot get bugs')
             console.log('cannot get bugs', err)
         })
 })
 
 app.get('/api/bug/save', (req, res) => {
-
     const bugToSave = {
         _id: req.query._id,
         title: req.query.title,
         description: req.query.description,
         severity: +req.query.severity,
-        createdAt: Date.now()
+        createdAt: +req.query.createdAt
     }
 
-    bugService.save(bugToSave)
+    console.log(bugToSave)
+    bugService
+        .save(bugToSave)
         .then(savedBug => res.send(savedBug))
         .catch((err) => {
-            loggerService.error('Cannot save car', err)
+            loggerService.error('Cannot save bug', err)
             res.status(500).send('Cannot save bug', err)
         })
 })
 
 app.get('/api/bug/:bugId', (req, res) => {
     const { bugId } = req.params
-    console.log(req.params)
     bugService.getById(bugId)
         .then(bug => res.send(bug))
         .catch(err => {
