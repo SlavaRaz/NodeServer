@@ -1,8 +1,15 @@
 [
     {
+        "_id": "abc123",
+        "title": "Cannot save a new car",
+        "description": "null",
+        "severity": 3,
+        "createdAt": null
+    },
+    {
         "_id": "abc456",
         "title": "Cannot edit a car",
-        "description": "problem when clicking edit",
+        "description": "null",
         "severity": 2,
         "createdAt": null
     },
