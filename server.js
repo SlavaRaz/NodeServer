@@ -6,6 +6,7 @@ import cookieParser from 'cookie-parser'
 
 const app = express()
 app.use(cookieParser())
+app.use(express.json())
 
 app.use(express.static('public'))
 
@@ -19,22 +20,29 @@ app.get('/api/bug', (req, res) => {
         })
 })
 
-app.get('/api/bug/save', (req, res) => {
-    const bugToSave = {
-        _id: req.query._id,
-        title: req.query.title,
-        description: req.query.description,
-        severity: +req.query.severity,
-        createdAt: +req.query.createdAt
-    }
+app.post('/api/bug', (req, res) => {
 
+    const bugToSave = req.body
     console.log(bugToSave)
     bugService
         .save(bugToSave)
         .then(savedBug => res.send(savedBug))
         .catch((err) => {
-            loggerService.error('Cannot save bug', err)
-            res.status(500).send('Cannot save bug', err)
+            loggerService.error('Cannot add bug', err)
+            res.status(500).send('Cannot add bug', err)
+        })
+})
+
+app.put('/api/bug/:bugId', (req, res) => {
+
+    const bugToSave = req.body
+    console.log(bugToSave)
+    bugService
+        .save(bugToSave)
+        .then(savedBug => res.send(savedBug))
+        .catch((err) => {
+            loggerService.error('Cannot update bug', err)
+            res.status(500).send('Cannot update bug', err)
         })
 })
 
@@ -59,13 +67,13 @@ app.get('/api/bug/:bugId', (req, res) => {
         })
 })
 
-app.get('/api/bug/:bugId/remove', (req, res) => {
+app.delete('/api/bug/:bugId', (req, res) => {
     const { bugId } = req.params
     bugService.remove(bugId)
         .then(() => res.send(bugId + ' Removed Successfully!'))
         .catch(err => {
             loggerService.error('Cannot remove bug', err)
-            res.status(500).send('Cannot remove bug')
+            res.status(400).send('Cannot remove bug')
         })
 })
 

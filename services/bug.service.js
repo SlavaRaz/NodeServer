@@ -28,13 +28,32 @@ function remove(bugId) {
 }
 
 function save(bugToSave) {
-    console.log(bugToSave)
+
     if (bugToSave._id) {
         const bugIdx = bugs.findIndex((bug) => bug._id === bugToSave._id)
-        console.log(bugIdx)
-        bugs[bugIdx] = bugToSave
+        bugToSave = {
+            _id: bugToSave._id,
+            title: bugToSave.title,
+            severity: bugToSave.severity,
+            description: bugToSave.description,
+            updatedAt: Date.now()
+        }
+        bugs[bugIdx].title = bugToSave.title
+        bugs[bugIdx].severity = bugToSave.severity
+        bugs[bugIdx].description = bugToSave.description
+        bugs[bugIdx].updatedAt = bugToSave.updatedAt
+
+        bugToSave=bugs[bugIdx]
+        
     } else {
-        bugToSave._id = utilService.makeId()
+        bugToSave = {
+            _id: utilService.makeId(),
+            title: bugToSave.title,
+            severity: bugToSave.severity,
+            description: bugToSave.description,
+            updatedAt: Date.now(),
+            createdAt: Date.now(),
+        }
         bugs.unshift(bugToSave)
     }
 

@@ -24,21 +24,31 @@ function getById(bugId) {
 }
 
 function remove(bugId) {
-    return axios.get(BASE_URL + bugId + '/remove')
+    // return axios.get(BASE_URL + bugId + '/remove')
+    // .then(res => res.data)
+    return axios.delete(BASE_URL + bugId)
         .then(res => res.data)
 }
 
-function save(bug) {
-    const url = BASE_URL + 'save'
-    let queryParams = `?title=${bug.title}&severity=${bug.severity}&description=${bug.description}`
-    if (bug._id) queryParams += `&_id=${bug._id}`
-    return axios
-      .get(url + queryParams)
-      .then((res) => res.data)
-      .catch((err) => {
-        console.log('err:', err)
-      })
-  }
+function save(car) {
+    if (car._id) {
+        return axios.put(BASE_URL + car._id, car)
+            .then(res => res.data)
+            .catch(err => {
+                console.log('err:', err)
+                throw err
+            })
+
+    } else {
+        return axios.post(BASE_URL, car)
+            .then(res => res.data)
+            .catch(err => {
+                console.log('err:', err)
+                throw err
+            })
+
+    }
+}
 
 function _createBugs() {
     let bugs = utilService.loadFromStorage(STORAGE_KEY)
