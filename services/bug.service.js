@@ -29,7 +29,8 @@ function query(filterBy) {
         filteredBugs = filteredBugs.slice(startIdx, startIdx + PAGE_SIZE)
     }
     if (filterBy.labels)
-        filteredBugs = filteredBugs.filter(bug => bug.labels.includes(filterBy.labels))
+        filteredBugs = filteredBugs.filter(bug =>
+            filterBy.labels.some(label => bug.labels.includes(label)))
     // console.log(filteredBugs)
 
     return Promise.resolve(filteredBugs)

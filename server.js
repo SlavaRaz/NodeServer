@@ -16,7 +16,7 @@ app.get('/api/bug', (req, res) => {
         txt: req.query.txt || '',
         severity: req.query.severity || 0,
         pageIdx: req.query.pageIdx,
-        labels: req.query.labels || ''
+        labels: req.query.labels.split(',') || []
     }
     console.log(filterBy)
 
