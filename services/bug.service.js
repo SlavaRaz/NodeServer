@@ -31,9 +31,14 @@ function query(filterBy) {
     if (filterBy.labels)
         filteredBugs = filteredBugs.filter(bug =>
             filterBy.labels.some(label => bug.labels.includes(label)))
-    // console.log(filteredBugs)
 
-    return Promise.resolve(filteredBugs)
+    const sortedBugs = filteredBugs.sort((a, b) => {
+        const direction = filterBy.sortDir
+        if (a[filterBy.sortBy] < b[filterBy.sortBy]) return -1 * direction
+        if (a[filterBy.sortBy] > b[filterBy.sortBy]) return 1 * direction
+    })
+
+    return Promise.resolve(sortedBugs)
 }
 
 function getById(bugId) {

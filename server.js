@@ -11,12 +11,14 @@ app.use(express.json())
 app.use(express.static('public'))
 
 app.get('/api/bug', (req, res) => {
-
     const filterBy = {
+
         txt: req.query.txt || '',
         severity: req.query.severity || 0,
         pageIdx: req.query.pageIdx,
-        labels: req.query.labels.split(',') || []
+        labels: req.query.labels ? req.query.labels.split(',') : '',
+        sortBy: req.query.sortBy || 'title',
+        sortDir: req.query.sortDir || 1,
     }
     console.log(filterBy)
 
