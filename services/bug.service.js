@@ -1,6 +1,8 @@
 import fs from 'fs'
 import { utilService } from './util.service.js'
 
+const PAGE_SIZE = 4
+
 const bugs = utilService.readJsonFile('data/bugs.json')
 
 export const bugService = {
@@ -10,8 +12,27 @@ export const bugService = {
     save
 }
 
-function query() {
-    return Promise.resolve(bugs)
+function query(filterBy) {
+    var filteredBugs = bugs
+
+    if (filterBy.txt) {
+        const regExp = new RegExp(filterBy.txt, 'i')
+        filteredBugs = filteredBugs.filter(bug => regExp.test(bug.title))
+    }
+
+    if (filterBy.severity) {
+        filteredBugs = filteredBugs.filter(bug => bug.severity >= filterBy.severity)
+    }
+
+    if (filterBy.pageIdx !== undefined) {
+        const startIdx = filterBy.pageIdx * PAGE_SIZE
+        filteredBugs = filteredBugs.slice(startIdx, startIdx + PAGE_SIZE)
+    }
+    if (filterBy.labels)
+        filteredBugs = filteredBugs.filter(bug => bug.labels.includes(filterBy.labels))
+    // console.log(filteredBugs)
+
+    return Promise.resolve(filteredBugs)
 }
 
 function getById(bugId) {
@@ -43,8 +64,8 @@ function save(bugToSave) {
         bugs[bugIdx].description = bugToSave.description
         bugs[bugIdx].updatedAt = bugToSave.updatedAt
 
-        bugToSave=bugs[bugIdx]
-        
+        bugToSave = bugs[bugIdx]
+
     } else {
         bugToSave = {
             _id: utilService.makeId(),

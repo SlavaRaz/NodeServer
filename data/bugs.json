@@ -1,36 +1,54 @@
 [
     {
         "_id": "X4ceS",
-        "title": "slava",
+        "title": "yaya",
         "severity": 2,
         "updatedAt": 1730720674271,
-        "createdAt": 1730720674271
+        "createdAt": 1730720674271,
+        "labels": [
+            "critical",
+            "dev-branch",
+            "need-CR"
+        ]
     },
     {
         "_id": "pwA02",
-        "title": "slava",
+        "title": "dodo",
         "severity": 2,
         "updatedAt": 1730720671343,
-        "createdAt": 1730720671343
+        "createdAt": 1730720671343,
+        "labels": [
+            "need-CR"
+        ]
     },
     {
         "_id": "3H2MG",
         "title": "slava",
         "severity": 2,
         "updatedAt": 1730720664823,
-        "createdAt": 1730720664823
+        "createdAt": 1730720664823,
+        "labels": [
+            "dev-branch"
+        ]
     },
     {
         "title": "yaya223",
         "severity": 2,
         "_id": "9smCf",
-        "description": "momo"
+        "description": "momo",
+        "labels": [
+            "critical"
+        ]
     },
     {
         "title": "slava123",
         "severity": 24,
         "_id": "3pmUs",
-        "updatedAt": 1730720669607
+        "updatedAt": 1730720669607,
+        "labels": [
+            "critical",
+            "dev-branch"
+        ]
     },
     {
         "_id": "abc789",
@@ -40,7 +58,8 @@
         "createdAt": 1542107359454,
         "labels": [
             "critical",
-            "dev-branch"
+            "dev-branch",
+            "need-CR"
         ]
     }
 ]
