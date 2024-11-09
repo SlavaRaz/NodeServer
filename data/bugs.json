@@ -1,52 +1,11 @@
 [
     {
-        "_id": "X4ceS",
-        "title": "yaya",
-        "severity": 2,
-        "updatedAt": 1730720674271,
-        "createdAt": 1730720674271,
+        "_id": "5y2NP",
+        "title": "Cannot update car",
+        "severity": 7,
+        "updatedAt": 1730808101644,
+        "createdAt": 1730808101644,
         "labels": [
-            "critical",
-            "dev-branch",
-            "need-CR"
-        ]
-    },
-    {
-        "_id": "pwA02",
-        "title": "dodo",
-        "severity": 2,
-        "updatedAt": 1730720671343,
-        "createdAt": 1730720671343,
-        "labels": [
-            "need-CR"
-        ]
-    },
-    {
-        "_id": "3H2MG",
-        "title": "slava",
-        "severity": 2,
-        "updatedAt": 1730720664823,
-        "createdAt": 1730720664823,
-        "labels": [
-            "dev-branch"
-        ]
-    },
-    {
-        "title": "yaya223",
-        "severity": 2,
-        "_id": "9smCf",
-        "description": "momo",
-        "labels": [
-            "critical"
-        ]
-    },
-    {
-        "title": "slava123",
-        "severity": 24,
-        "_id": "3pmUs",
-        "updatedAt": 1730720669607,
-        "labels": [
-            "critical",
             "dev-branch"
         ]
     },
@@ -59,6 +18,47 @@
         "labels": [
             "critical",
             "dev-branch",
+            "need-CR"
+        ]
+    },
+    {
+        "_id": "3H2MG",
+        "title": "Reject copy car",
+        "severity": 2,
+        "updatedAt": 1730806560412,
+        "createdAt": 1730720664823,
+        "labels": [
+            "dev-branch"
+        ],
+        "description": "slava"
+    },
+    {
+        "title": "Wrong update car",
+        "severity": 24,
+        "_id": "3pmUs",
+        "updatedAt": 1730720669607,
+        "labels": [
+            "critical",
+            "dev-branch"
+        ]
+    },
+    {
+        "_id": "Y2GZx",
+        "title": "wrong color car",
+        "severity": 4,
+        "updatedAt": 1730806379462,
+        "createdAt": 1730806379462,
+        "labels": [
+            "need-CR"
+        ]
+    },
+    {
+        "_id": "hTek5",
+        "title": "Cannot click on car",
+        "severity": 3,
+        "updatedAt": 1730808093781,
+        "createdAt": 1730808093781,
+        "labels": [
             "need-CR"
         ]
     }

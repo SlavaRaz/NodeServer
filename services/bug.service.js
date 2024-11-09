@@ -28,17 +28,22 @@ function query(filterBy) {
         const startIdx = filterBy.pageIdx * PAGE_SIZE
         filteredBugs = filteredBugs.slice(startIdx, startIdx + PAGE_SIZE)
     }
-    if (filterBy.labels)
+
+    if (filterBy.labels) {
         filteredBugs = filteredBugs.filter(bug =>
-            filterBy.labels.some(label => bug.labels.includes(label)))
+            filterBy.labels.some(label => bug.labels.includes(label))
+        )
+    }
 
-    const sortedBugs = filteredBugs.sort((a, b) => {
-        const direction = filterBy.sortDir
-        if (a[filterBy.sortBy] < b[filterBy.sortBy]) return -1 * direction
-        if (a[filterBy.sortBy] > b[filterBy.sortBy]) return 1 * direction
-    })
+    if (filterBy.sortBy) {
+        filteredBugs.sort((a, b) => {
+            if (a[filterBy.sortBy] < b[filterBy.sortBy]) return -1 * filterBy.sortDir
+            if (a[filterBy.sortBy] > b[filterBy.sortBy]) return 1 * filterBy.sortDir
 
-    return Promise.resolve(sortedBugs)
+        })
+    }
+
+    return Promise.resolve(filteredBugs)
 }
 
 function getById(bugId) {
