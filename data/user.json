@@ -1,0 +1,118 @@
+[
+  {
+    "_id": "u101",
+    "username": "puki",
+    "fullname": "Puki Ja",
+    "password": "puki",
+    "score": 100,
+    "isAdmin": true
+  },
+  {
+    "_id": "u102",
+    "username": "muki",
+    "fullname": "Muki Ba",
+    "password": "secret2",
+    "score": 100
+  },
+  {
+    "username": "kiki",
+    "password": "kiki",
+    "fullname": "Kiki Ki",
+    "_id": "6iykr"
+  },
+  {
+    "username": "huki",
+    "password": "huki",
+    "fullname": "Huki Ja",
+    "_id": "XtFoM"
+  },
+  {
+    "username": "aaa",
+    "password": "aaa",
+    "fullname": "aaa",
+    "_id": "6RyQp"
+  },
+  {
+    "username": "gugu",
+    "password": "gugu",
+    "fullname": "Gugu Ga",
+    "_id": "qLEdY"
+  },
+  {
+    "username": "mumu",
+    "password": "mumu",
+    "fullname": "Mumu Ma",
+    "_id": "tUZPy"
+  },
+  {
+    "username": "cc",
+    "password": "cc",
+    "fullname": "cc",
+    "_id": "wfawE"
+  },
+  {
+    "username": "bob",
+    "password": "bob",
+    "fullname": "bob",
+    "_id": "GOtHH"
+  },
+  {
+    "title": "slava",
+    "severity": 2,
+    "_id": "37dtY"
+  },
+  {
+    "title": "slava",
+    "severity": 2,
+    "_id": "nI5KX"
+  },
+  {
+    "title": "slava",
+    "severity": 2,
+    "_id": "6CI5e"
+  },
+  {
+    "title": "slava",
+    "severity": 2,
+    "_id": "yzP6d"
+  },
+  {
+    "title": "slava",
+    "severity": 2,
+    "_id": "8GHBT"
+  },
+  {
+    "title": "slava",
+    "severity": 2,
+    "_id": "Zn3EW"
+  },
+  {
+    "title": "slava",
+    "severity": 2,
+    "_id": "LkwEP"
+  },
+  {
+    "title": "slava",
+    "severity": 2,
+    "_id": "6qdFS"
+  },
+  {
+    "title": "slava",
+    "severity": 2,
+    "_id": "UcMWK"
+  },
+  {
+    "title": "slava",
+    "severity": 2,
+    "_id": "Z7lTK"
+  },
+  {
+    "_id": "9VZBC"
+  },
+  {
+    "_id": "xkEBK"
+  },
+  {
+    "_id": "8kKsg"
+  }
+]
