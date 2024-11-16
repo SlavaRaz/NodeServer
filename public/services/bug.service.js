@@ -57,23 +57,12 @@ function remove(bugId) {
         .then(res => res.data)
 }
 
-function save(car) {
-    if (car._id) {
-        return axios.put(BASE_URL + car._id, car)
-            .then(res => res.data)
-            .catch(err => {
-                console.log('err:', err)
-                throw err
-            })
+function save(bug) {
+    console.log(bug)
+    const method = bug._id ? 'put' : 'post'
 
-    } else {
-        return axios.post(BASE_URL, car)
-            .then(res => res.data)
-            .catch(err => {
-                console.log('err:', err)
-                throw err
-            })
-    }
+    return axios[method](BASE_URL + ((method === 'put') ? bug._id : ''), bug)
+        .then(res => res.data)
 }
 
 function getDefaultFilter() {

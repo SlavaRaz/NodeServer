@@ -1,4 +1,5 @@
 import fs from 'fs'
+import { loggerService } from './logger.service.js'
 import { utilService } from './util.service.js'
 
 const PAGE_SIZE = 4
@@ -52,16 +53,21 @@ function getById(bugId) {
     return Promise.resolve(bug)
 }
 
-function remove(bugId) {
+function remove(bugId, user) {
     const bugIdx = bugs.findIndex(bug => bug._id === bugId)
     if (bugIdx < 0) return Promise.reject('Cannot find bug - ' + bugId)
+
+    if (!user.isAdmin && bugs[idx].owner._id !== user._id) return Promise.reject('Not your bug')
+
     bugs.splice(bugIdx, 1)
     return _saveBugsToFile()
 }
 
-function save(bugToSave) {
+function save(bugToSave, user) {
 
     if (bugToSave._id) {
+        if (!user.isAdmin && bugToSave.owner._id !== user._id) return Promise.reject('Not your bug')
+
         const bugIdx = bugs.findIndex((bug) => bug._id === bugToSave._id)
         bugToSave = {
             _id: bugToSave._id,
@@ -86,10 +92,12 @@ function save(bugToSave) {
             updatedAt: Date.now(),
             createdAt: Date.now(),
         }
+        bugToSave.owner = user
         bugs.unshift(bugToSave)
     }
 
-    return _saveBugsToFile().then(() => bugToSave)
+    return _saveBugsToFile()
+        .then(() => bugToSave)
 }
 
 function _saveBugsToFile() {

@@ -34,10 +34,13 @@ app.get('/api/bug', (req, res) => {
 
 app.post('/api/bug', (req, res) => {
 
+    const user = userService.validateToken(req.cookies.loginToken)
+    if (!user) return res.status(401).send('Unauthenticated')
+    console.log(user)
+
     const bugToSave = req.body
-    console.log(bugToSave)
     bugService
-        .save(bugToSave)
+        .save(bugToSave, user)
         .then(savedBug => res.send(savedBug))
         .catch((err) => {
             loggerService.error('Cannot add bug', err)
@@ -47,8 +50,10 @@ app.post('/api/bug', (req, res) => {
 
 app.put('/api/bug/:bugId', (req, res) => {
 
+    const user = userService.validateToken(req.cookies.loginToken)
+    if (!user) return res.status(401).send('Unauthenticated')
+
     const bugToSave = req.body
-    console.log(bugToSave)
     bugService
         .save(bugToSave)
         .then(savedBug => res.send(savedBug))
@@ -61,7 +66,6 @@ app.put('/api/bug/:bugId', (req, res) => {
 app.get('/api/bug/:bugId', (req, res) => {
     const { bugId } = req.params
     let visitedBugs = req.cookies.visitedBugs || []
-    console.log(visitedBugs)
 
     if (!visitedBugs.includes(bugId)) {
         visitedBugs.push(bugId)
@@ -80,8 +84,12 @@ app.get('/api/bug/:bugId', (req, res) => {
 })
 
 app.delete('/api/bug/:bugId', (req, res) => {
+
+    const user = userService.validateToken(req.cookies.loginToken)
+    if (!user) return res.status(401).send('Unauthenticated')
+
     const { bugId } = req.params
-    bugService.remove(bugId)
+    bugService.remove(bugId, user)
         .then(() => res.send(bugId + ' Removed Successfully!'))
         .catch(err => {
             loggerService.error('Cannot remove bug', err)

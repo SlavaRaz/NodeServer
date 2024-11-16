@@ -1,5 +1,25 @@
 [
     {
+        "_id": "HkbUR",
+        "updatedAt": 1731797460712,
+        "createdAt": 1731797460712,
+        "owner": {
+            "_id": "u101",
+            "fullname": "Puki Ja",
+            "isAdmin": true
+        }
+    },
+    {
+        "_id": "MTFXj",
+        "updatedAt": 1731797432112,
+        "createdAt": 1731797432112,
+        "owner": {
+            "_id": "u101",
+            "fullname": "Puki Ja",
+            "isAdmin": true
+        }
+    },
+    {
         "_id": "5y2NP",
         "title": "Cannot update car",
         "severity": 7,
@@ -8,7 +28,7 @@
         "labels": [
             "dev-branch"
         ],
-        "creator": {
+        "owner": {
             "_id": "u101",
             "fullname": "Kiki Ki"
         }
@@ -24,7 +44,7 @@
             "dev-branch",
             "need-CR"
         ],
-        "creator": {
+        "owner": {
             "_id": "u102",
             "fullname": "Muki Ba "
         }
@@ -39,7 +59,7 @@
             "dev-branch"
         ],
         "description": "slava",
-        "creator": {
+        "owner": {
             "_id": "u103",
             "fullname": "Huki Ja"
         }
@@ -53,7 +73,7 @@
             "critical",
             "dev-branch"
         ],
-        "creator": {
+        "owner": {
             "_id": "u101",
             "fullname": "Puki Ja",
             "isAdmin": true
@@ -68,9 +88,10 @@
         "labels": [
             "need-CR"
         ],
-        "creator": {
+        "owner": {
             "_id": "tUZPy",
-            "fullname": "Mumu Ma"
+            "fullname": "Mumu Ma",
+            "isAdmin": true
         }
     },
     {
@@ -82,10 +103,11 @@
         "labels": [
             "need-CR"
         ],
-        "creator": {
+        "owner": {
             "username": "gugu",
             "fullname": "Gugu Ga",
-            "_id": "qLEdY"
+            "_id": "qLEdY",
+            "isAdmin": true
         }
     }
 ]
